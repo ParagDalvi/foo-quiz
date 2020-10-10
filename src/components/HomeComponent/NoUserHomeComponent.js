@@ -1,18 +1,14 @@
 import React from 'react';
+import { Card } from 'reactstrap';
 import firebase from '../../firebase/firebase.js';
+import CustomNavbar from '../Reuse/CustomNavbar.js';
 
 
 const NoUserHomeComponent = () => {
-
-
-    const handleLogout = () => {
-        firebase.auth().signOut();
-        console.log('lo');
-    }
-
     return (
         <div>
-            <button onClick={handleLogout}>logout</button>
+            <CustomNavbar/>
+            
         </div>
     );
 }
