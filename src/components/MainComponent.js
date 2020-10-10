@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from '../firebase/firebase.js';
-import NoUserHomeComponent from './HomeComponent/NoUserHomeComponent.js';
+import NoUserHomeComponent from './NoUserHomeComponent/NoUserHomeComponent.js';
 
 class MainComponent extends Component {
 
