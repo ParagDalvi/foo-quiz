@@ -6,10 +6,10 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+  NavLink, Button
 } from 'reactstrap';
 
-const CustomNavbar = (props) => {
+const CustomNavbar = ({ toggleModal }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -22,7 +22,7 @@ const CustomNavbar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Create Quiz</NavLink>
+              <NavLink onClick={toggleModal} href="#">Create Quiz</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">Help</NavLink>

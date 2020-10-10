@@ -1,7 +1,7 @@
 import React from 'react';
 import { Jumbotron, Button, Container } from 'reactstrap';
 
-const HeroComponent = (props) => {
+const HeroComponent = ({toggleModal}) => {
     return (
         <div>
             <Jumbotron fluid>
@@ -12,7 +12,7 @@ const HeroComponent = (props) => {
                     <hr className="my-2" />
                     <p className="lead">Now get started and create a Foo quiz</p>
                     <p className="led">
-                        <Button color="primary">Create Quiz</Button>
+                        <Button color="primary" onClick={toggleModal}>Create Quiz</Button>
                     </p>
                 </Container>
             </Jumbotron>

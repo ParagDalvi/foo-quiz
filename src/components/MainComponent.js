@@ -19,19 +19,9 @@ class MainComponent extends Component {
         }.bind(this));
     }
 
-    handleLogin() {
-        firebase.auth().signInAnonymously().then((cred) => {
-            console.log('then done/n ');
-            console.log(cred);
-        });
-    }
-
-
-
     render() {
-        console.log(this.state.user);
         if (this.state.user)
-            return <button onClick={this.handleLogin}>login</button>
+            return <p>logged in</p>
         return <NoUserHomeComponent />
     }
 }
