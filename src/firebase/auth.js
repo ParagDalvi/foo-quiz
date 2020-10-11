@@ -1,12 +1,12 @@
 import firebase from './firebase';
 
-const signUp = (name) => {
-    firebase.auth().signInAnonymously().then(() => {
+const signUp = async (name) => {
+    await firebase.auth().signInAnonymously();
 
-        firebase.auth().currentUser.updateProfile({
-            displayName: name,
-        });
+    await firebase.auth().currentUser.updateProfile({
+        displayName: name,
     });
+
 }
 
 export { signUp };

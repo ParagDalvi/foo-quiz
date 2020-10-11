@@ -6,10 +6,14 @@ const SignUpModal = ({ toggleModal, modal }) => {
 
     const [name, setName] = useState('');
 
-    const handleSubmit = () => {
-        if (!(name.length === 0 || name.length > 25))
-            signUp(name);
-            toggleModal();
+    const handleSubmit = async () => {
+        if (!(name.length === 0 || name.length > 25)) {
+
+            await signUp(name);
+            console.log('done');
+        }
+
+        toggleModal();
     }
 
     return (
@@ -25,7 +29,7 @@ const SignUpModal = ({ toggleModal, modal }) => {
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={handleSubmit}>Do Something</Button>{' '}
+                    <Button color="primary" onClick={handleSubmit}>Create</Button>{' '}
                     <Button color="secondary" onClick={toggleModal}>Cancel</Button>
                 </ModalFooter>
             </Modal>
