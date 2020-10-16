@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from '../firebase/firebase.js';
 import NoUserHomeComponent from './NoUserHomeComponent/NoUserHomeComponent.js';
+import UserHomeComponent from './UserHomeComponent/UserHomeComponent.js';
 
 class MainComponent extends Component {
 
@@ -16,13 +17,19 @@ class MainComponent extends Component {
             this.setState({
                 user: user,
             });
+            
         }.bind(this));
     }
 
     render() {
+        // console.log(this.state.user?.displayName);
         if (this.state.user)
-            return <p>logged in</p>
+            return <UserHomeComponent user={this.state.user} />
         return <NoUserHomeComponent />
+
+
+        // return <UserHomeComponent user={this.state.user} />
+        // return <NoUserHomeComponent/>
     }
 }
 

@@ -21,9 +21,13 @@ const CustomNavbar = ({ toggleModal }) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink onClick={toggleModal} href="#">Create Quiz</NavLink>
-            </NavItem>
+            {
+              toggleModal ?
+                <NavItem>
+                  <NavLink onClick={toggleModal} href="#">Create Quiz</NavLink>
+                </NavItem>
+                : null
+            }
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">Help</NavLink>
             </NavItem>
