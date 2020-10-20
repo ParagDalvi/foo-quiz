@@ -6,83 +6,106 @@ import CustomNavbar from '../Reuse/CustomNavbar';
 const basicQuizQuestions = [
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
     {
         question: 'Best superhero',
-        options1: 'Iron man',
-        options2: 'Captain',
-        options3: 'Superman',
-        options4: 'Thor',
+        a: 'Iron man',
+        b: 'Captain',
+        c: 'Superman',
+        d: 'Thor',
     },
 ];
 
 const BasicQuiz = () => {
+
+    var answers = {
+        _1: '',
+        _2: '',
+        _3: '',
+        _4: '',
+        _5: '',
+        _6: '',
+        _7: '',
+        _8: '',
+        _9: '',
+        _10: '',
+    }
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        answers[name] = e.target.value;
+    }
+
+    const handleSubmit = () => {
+        console.log(answers);
+    }
+
     return (
         <div>
             <CustomNavbar />
             <Container>
                 <br></br>
-                <p>Below are a few basic questions answer them and later ask your friends to guess your answers &#129305;</p>
+                <p>Below are a few basic questions, answer them and later ask your friends to guess your answers &#129305;</p>
                 {
                     basicQuizQuestions.map((foo, i) => {
                         return (
@@ -94,28 +117,28 @@ const BasicQuiz = () => {
                                             <Col>
                                                 <FormGroup check>
                                                     <Label check>
-                                                        <Input type="radio" name={i} />
-                                                        {foo.options1}
+                                                        <Input type="radio" name={'_' + (i + 1)} value="a" onChange={(e) => handleChange(e)} />
+                                                        {foo.a}
                                                     </Label>
                                                 </FormGroup>
                                                 <FormGroup check>
                                                     <Label check>
-                                                        <Input type="radio" name={i} />
-                                                        {foo.options3}
+                                                        <Input type="radio" name={'_' + (i + 1)} value="c" onChange={(e) => handleChange(e)} />
+                                                        {foo.c}
                                                     </Label>
                                                 </FormGroup>
                                             </Col>
                                             <Col>
                                                 <FormGroup check>
                                                     <Label check>
-                                                        <Input type="radio" name={i} />
-                                                        {foo.options2}
+                                                        <Input type="radio" name={'_' + (i + 1)} value="b" onChange={(e) => handleChange(e)} />
+                                                        {foo.b}
                                                     </Label>
                                                 </FormGroup>
                                                 <FormGroup check>
                                                     <Label check>
-                                                        <Input type="radio" name={i} />
-                                                        {foo.options4}
+                                                        <Input type="radio" name={'_' + (i + 1)} value="d" onChange={(e) => handleChange(e)} />
+                                                        {foo.d}
                                                     </Label>
                                                 </FormGroup>
                                             </Col>
@@ -128,7 +151,7 @@ const BasicQuiz = () => {
                     })
                 }
                 <div className="d-flex justify-content-center mb-4">
-                    <Button>Submit</Button>
+                    <Button onClick={() => handleSubmit()}>Submit</Button>
                 </div>
 
             </Container>
