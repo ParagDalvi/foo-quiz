@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, CardText, Container, CardBody, CardTitle, CardSubtitle, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
+import React, { useState } from 'react';
+import { Card, CardText, Container, CardBody, CardTitle, CardSubtitle, FormGroup, Label, Input, Row, Col, Button, Alert } from 'reactstrap';
 import CustomCard from '../Reuse/CustoCard';
 import CustomNavbar from '../Reuse/CustomNavbar';
 
@@ -91,13 +91,37 @@ const BasicQuiz = () => {
         _10: '',
     }
 
+    const [error, setError] = useState('');
+
     const handleChange = (e) => {
         const name = e.target.name;
         answers[name] = e.target.value;
     }
 
+    const checkIfAllAreSelected = () => {
+        var foo = 0;
+        for (var key in answers) {
+            var value = answers[key];
+            if (value == '' || value == null || value == undefined) {
+                foo = 1;
+                break;
+            }
+        }
+        if (foo == 0) return true;
+        return false;
+    }
+
     const handleSubmit = () => {
-        console.log(answers);
+        if (!checkIfAllAreSelected()) {
+            setError('Please answer all the questions');
+            return;
+        }
+
+        console.log('Submit');
+        for (var key in answers) {
+            var value = answers[key];
+            console.log(value);
+        }
     }
 
     return (
@@ -149,6 +173,15 @@ const BasicQuiz = () => {
                             </div>
                         );
                     })
+                }
+                {
+                    error
+                        ?
+                        <Alert color="danger">
+                            {error}
+                        </Alert>
+                        :
+                        <p></p>
                 }
                 <div className="d-flex justify-content-center mb-4">
                     <Button onClick={() => handleSubmit()}>Submit</Button>
