@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardText, Container, CardBody, CardTitle, CardSubtitle, FormGroup, Label, Input, Row, Col, Button, Alert } from 'reactstrap';
+import { submitQuiz } from '../../firebase/db';
 import CustomCard from '../Reuse/CustoCard';
 import CustomNavbar from '../Reuse/CustomNavbar';
 
@@ -76,7 +77,7 @@ const basicQuizQuestions = [
     },
 ];
 
-const BasicQuiz = () => {
+const BasicQuiz = ({ user }) => {
 
     var answers = {
         _1: '',
@@ -117,11 +118,7 @@ const BasicQuiz = () => {
             return;
         }
 
-        console.log('Submit');
-        for (var key in answers) {
-            var value = answers[key];
-            console.log(value);
-        }
+        submitQuiz(user.uid, 'basic-Quiz', answers);
     }
 
     return (

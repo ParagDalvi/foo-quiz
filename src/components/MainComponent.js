@@ -34,7 +34,7 @@ class MainComponent extends Component {
                         <UserHomeComponent user={this.state.user} />
                     </Route>
                     <Route exact path="/basic">
-                        <BasicQuiz />
+                        <BasicQuiz user={this.state.user}/>
                     </Route>
                 </Switch>
             </Router>
