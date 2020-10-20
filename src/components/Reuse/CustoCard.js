@@ -3,8 +3,12 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import { useHistory } from "react-router-dom";
 
 const CustomCard = ({ title, subtitle, someCrap }) => {
+
+    const history = useHistory();
+
     return (
         <div>
             <Card>
@@ -12,7 +16,7 @@ const CustomCard = ({ title, subtitle, someCrap }) => {
                     <CardTitle>{title}</CardTitle>
                     <CardSubtitle>{subtitle}</CardSubtitle>
                     <CardText>{someCrap}</CardText>
-                    <Button>Start</Button>
+                    <Button onClick={() => history.push('/basic')}>Start</Button>
                 </CardBody>
             </Card>
         </div>

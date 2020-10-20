@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import firebase from '../firebase/firebase.js';
 import NoUserHomeComponent from './NoUserHomeComponent/NoUserHomeComponent.js';
+import BasicQuiz from './Quizes/BasicQuizComponent.js';
 import UserHomeComponent from './UserHomeComponent/UserHomeComponent.js';
 
 class MainComponent extends Component {
@@ -23,11 +24,17 @@ class MainComponent extends Component {
     }
 
     render() {
+
+        if (!this.state.user) return <NoUserHomeComponent />
+
         return (
             <Router>
                 <Switch>
-                    <Route path="/">
-                        {this.state.user ? <UserHomeComponent user={this.state.user} /> : <NoUserHomeComponent />}
+                    <Route exact path="/">
+                        <UserHomeComponent user={this.state.user} />
+                    </Route>
+                    <Route exact path="/basic">
+                        <BasicQuiz />
                     </Route>
                 </Switch>
             </Router>

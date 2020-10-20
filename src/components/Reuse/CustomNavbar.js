@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -14,10 +15,12 @@ const CustomNavbar = ({ toggleModal }) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const history = useHistory();
+
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">FOO-Quiz</NavbarBrand>
+        <NavbarBrand onClick={() => history.push('/')}>FOO-Quiz</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
