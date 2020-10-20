@@ -20,7 +20,7 @@ const UserHomeComponent = ({user}) => {
 
                 <Row>
                     <div className="col-3">
-                        <CustomCard title="Basic" />
+                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai"/>
                     </div>
                 </Row>
             </Container>

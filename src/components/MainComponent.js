@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import firebase from '../firebase/firebase.js';
 import NoUserHomeComponent from './NoUserHomeComponent/NoUserHomeComponent.js';
 import UserHomeComponent from './UserHomeComponent/UserHomeComponent.js';
@@ -17,19 +18,20 @@ class MainComponent extends Component {
             this.setState({
                 user: user,
             });
-            
+
         }.bind(this));
     }
 
     render() {
-        // console.log(this.state.user?.displayName);
-        if (this.state.user)
-            return <UserHomeComponent user={this.state.user} />
-        return <NoUserHomeComponent />
-
-
-        // return <UserHomeComponent user={this.state.user} />
-        // return <NoUserHomeComponent/>
+        return (
+            <Router>
+                <Switch>
+                    <Route path="/">
+                        {this.state.user ? <UserHomeComponent user={this.state.user} /> : <NoUserHomeComponent />}
+                    </Route>
+                </Switch>
+            </Router>
+        );
     }
 }
 
