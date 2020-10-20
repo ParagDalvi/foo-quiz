@@ -93,6 +93,8 @@ const BasicQuiz = ({ user }) => {
     }
 
     const [error, setError] = useState('');
+    const [disableButton, setDissableButton] = useState(false);
+    const [showSharingPage, setShowSharingPage] = useState(false);
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -103,7 +105,7 @@ const BasicQuiz = ({ user }) => {
         var foo = 0;
         for (var key in answers) {
             var value = answers[key];
-            if (value == '' || value == null || value == undefined) {
+            if (value === '' || value === null || value === undefined) {
                 foo = 1;
                 break;
             }
@@ -112,13 +114,25 @@ const BasicQuiz = ({ user }) => {
         return false;
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        setDissableButton(true);
         if (!checkIfAllAreSelected()) {
             setError('Please answer all the questions');
+            setDissableButton(false);
             return;
         }
 
-        submitQuiz(user.uid, 'basic-Quiz', answers);
+        var result = await submitQuiz(user.uid, 'basic-Quiz', answers);
+        if (result !== 'done')
+            setError('Failed to save your answers, sorry :(');
+
+        setDissableButton(false);
+        setShowSharingPage(true);
+    }
+
+
+    if(showSharingPage){
+        
     }
 
     return (
@@ -181,7 +195,7 @@ const BasicQuiz = ({ user }) => {
                         <p></p>
                 }
                 <div className="d-flex justify-content-center mb-4">
-                    <Button onClick={() => handleSubmit()}>Submit</Button>
+                    <Button disabled={disableButton} color="primary" onClick={() => handleSubmit()}>Submit</Button>
                 </div>
 
             </Container>
