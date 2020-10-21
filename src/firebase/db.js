@@ -1,5 +1,10 @@
 import firebase from './firebase.js';
 
+
+const checkIfDocumentExists = async (collection, doc) => {
+    return (await firebase.firestore().collection(collection).doc(doc).get()).exists;
+}
+
 const submitQuiz = async (path, docName, value) => {
     try {
         await firebase.firestore().collection(path).doc(docName).set({
@@ -25,4 +30,4 @@ const submitQuiz = async (path, docName, value) => {
 
 }
 
-export { submitQuiz };
+export { submitQuiz, checkIfDocumentExists };

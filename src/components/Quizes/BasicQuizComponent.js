@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardText, Container, CardBody, CardTitle, CardSubtitle, FormGroup, Label, Input, Row, Col, Button, Alert } from 'reactstrap';
-import { submitQuiz } from '../../firebase/db';
+import { checkIfDocumentExists, submitQuiz } from '../../firebase/db';
 import CustomCard from '../Reuse/CustoCard';
 import CustomNavbar from '../Reuse/CustomNavbar';
+import LinkSharing from './LinkSharingComponent';
 
 const basicQuizQuestions = [
     {
@@ -96,6 +97,18 @@ const BasicQuiz = ({ user }) => {
     const [disableButton, setDissableButton] = useState(false);
     const [showSharingPage, setShowSharingPage] = useState(false);
 
+    useEffect(() => {
+        async function init() {
+            return await checkIfDocumentExists(user.uid, 'basic-Quiz');
+        }
+
+        init().then((bool) => {
+            if (bool)
+                setShowSharingPage(true);
+        });
+
+    });
+
     const handleChange = (e) => {
         const name = e.target.name;
         answers[name] = e.target.value;
@@ -131,8 +144,8 @@ const BasicQuiz = ({ user }) => {
     }
 
 
-    if(showSharingPage){
-        
+    if (showSharingPage) {
+        return <LinkSharing name="basic" user={user} />
     }
 
     return (
@@ -195,7 +208,7 @@ const BasicQuiz = ({ user }) => {
                         <p></p>
                 }
                 <div className="d-flex justify-content-center mb-4">
-                    <Button disabled={disableButton} color="primary" onClick={() => handleSubmit()}>Submit</Button>
+                    <Button disabled={disableButton} color="primary" onClick={() => handleSubmit()}>Save</Button>
                 </div>
 
             </Container>
