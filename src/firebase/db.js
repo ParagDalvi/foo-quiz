@@ -26,8 +26,6 @@ const submitQuiz = async (path, docName, value) => {
     } catch (error) {
         return error;
     }
-
-
 }
 
 export { submitQuiz, checkIfDocumentExists };

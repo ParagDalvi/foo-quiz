@@ -123,7 +123,7 @@ const BasicQuiz = ({ user }) => {
                 break;
             }
         }
-        if (foo == 0) return true;
+        if (foo === 0) return true;
         return false;
     }
 

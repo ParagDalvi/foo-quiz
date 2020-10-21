@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import firebase from '../firebase/firebase.js';
+import AnswerPage from './AnswerPageComponent/AnswerPageComponent.js';
 import NoUserHomeComponent from './NoUserHomeComponent/NoUserHomeComponent.js';
 import BasicQuiz from './Quizes/BasicQuizComponent.js';
 import UserHomeComponent from './UserHomeComponent/UserHomeComponent.js';
@@ -34,7 +35,10 @@ class MainComponent extends Component {
                         <UserHomeComponent user={this.state.user} />
                     </Route>
                     <Route exact path="/basic">
-                        <BasicQuiz user={this.state.user}/>
+                        <BasicQuiz user={this.state.user} />
+                    </Route>
+                    <Route path="/:answerURL">
+                        <AnswerPage />
                     </Route>
                 </Switch>
             </Router>
