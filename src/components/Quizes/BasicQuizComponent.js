@@ -99,7 +99,7 @@ const BasicQuiz = ({ user }) => {
 
     useEffect(() => {
         async function init() {
-            return await checkIfDocumentExists(user.uid, 'basic-Quiz');
+            return await checkIfDocumentExists(user.uid, 'basic-quiz');
         }
 
         init().then((bool) => {
@@ -135,7 +135,7 @@ const BasicQuiz = ({ user }) => {
             return;
         }
 
-        var result = await submitQuiz(user.uid, 'basic-Quiz', answers);
+        var result = await submitQuiz(user.uid, 'basic-quiz', answers);
         if (result !== 'done')
             setError('Failed to save your answers, sorry :(');
 

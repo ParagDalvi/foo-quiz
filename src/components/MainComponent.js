@@ -26,7 +26,19 @@ class MainComponent extends Component {
 
     render() {
 
-        if (!this.state.user) return <NoUserHomeComponent />
+        if (!this.state.user)
+            return (
+                <Router>
+                    <Switch>
+                        <Route exact path="/">
+                            <NoUserHomeComponent />
+                        </Route>
+                        <Route exact path="/answer/:answerURL">
+                            <AnswerPage />
+                        </Route>
+                    </Switch>
+                </Router>
+            );
 
         return (
             <Router>
@@ -36,9 +48,6 @@ class MainComponent extends Component {
                     </Route>
                     <Route exact path="/basic">
                         <BasicQuiz user={this.state.user} />
-                    </Route>
-                    <Route path="/:answerURL">
-                        <AnswerPage />
                     </Route>
                 </Switch>
             </Router>

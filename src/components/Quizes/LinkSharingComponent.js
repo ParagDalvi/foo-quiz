@@ -9,7 +9,7 @@ const LinkSharing = ({ name, user }) => {
             <Container>
                 <Card>
 
-                    <p>/answer-{name}-{user.uid} &#129305;</p>
+                    <p>/{name}-{user.uid}</p>
                 </Card>
             </Container>
         </div>
