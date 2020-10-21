@@ -10,9 +10,8 @@ const _404Component = () => {
             <Jumbotron fluid>
                 <Container fluid>
                     <h1 className="display-3">404 Page not found</h1>
-                    <p className="lead">You have come to a wrong place</p>
+                    <p className="lead">You have come to a wrong place, seems like the page has been deleted or you have the wrong url.</p>
                     <hr className="my-2" />
-                    <p className="lead">Check the url</p>
                 </Container>
             </Jumbotron>
         </div>

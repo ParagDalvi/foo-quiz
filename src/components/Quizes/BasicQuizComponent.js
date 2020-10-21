@@ -4,79 +4,7 @@ import { checkIfDocumentExists, submitQuiz } from '../../firebase/db';
 import CustomCard from '../Reuse/CustoCard';
 import CustomNavbar from '../Reuse/CustomNavbar';
 import LinkSharing from './LinkSharingComponent';
-
-const basicQuizQuestions = [
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-    {
-        question: 'Best superhero',
-        a: 'Iron man',
-        b: 'Captain',
-        c: 'Superman',
-        d: 'Thor',
-    },
-];
+import BasicQuizQuestions from '../Questions/basic.js';
 
 const BasicQuiz = ({ user }) => {
 
@@ -155,7 +83,7 @@ const BasicQuiz = ({ user }) => {
                 <br></br>
                 <p>Below are a few basic questions, answer them and later ask your friends to guess your answers &#129305;</p>
                 {
-                    basicQuizQuestions.map((foo, i) => {
+                    BasicQuizQuestions.map((foo, i) => {
                         return (
                             <div key={i}>
                                 <Card>
