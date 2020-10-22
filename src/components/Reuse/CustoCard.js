@@ -16,7 +16,7 @@ const CustomCard = ({ title, subtitle, someCrap }) => {
                     <CardTitle>{title}</CardTitle>
                     <CardSubtitle>{subtitle}</CardSubtitle>
                     <CardText>{someCrap}</CardText>
-                    <Button onClick={() => history.push('/basic')}>Start</Button>
+                    <Button color="primary" onClick={() => history.push('/basic')}>Start</Button>
                 </CardBody>
             </Card>
         </div>

@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Spinner, Container, Card, Form, FormGroup, Label, Input, CardBody, CardTitle, CardSubtitle, CardText, Button, Row, Col, Alert } from 'reactstrap';
+import { signUp } from '../../firebase/auth';
 import { checkIfDocumentExists } from '../../firebase/db';
 import _404Component from '../404/_404Component';
 import ErrorComponent from '../ErrorComponent/ErrorComponent';
 import BasicQuizQuestions from '../Questions/basic';
 import CustomNavbar from '../Reuse/CustomNavbar';
+import AfterAnsweringComponent from './AfterAnsweringComponent';
 
 const AnswerPage = () => {
     let { answerURL } = useParams();
 
     const [_404, set404] = useState(false);
     const [loading, setLoading] = useState(true);
+
+    // const [score, setScore] = useState(null);
+    const [score, setScore] = useState(6);
+
     const [data, setData] = useState(null);
 
     const [mainError, setMainError] = useState(null);
@@ -109,36 +115,46 @@ const AnswerPage = () => {
         }
 
 
-        let score = 0;
+        let marks = 0;
         for (const key in answers) {
             var ans = answers[key];
             var friendsAns = data['answers'][key.replace('_', '')];
 
             if (friendsAns === ans)
-                score++;
+                marks++;
         }
 
-        console.log('your score is', score);
+
+        setScore(marks);
 
     }
 
-    if (loading)
-        return (
-            <div style={{ height: '100%' }}>
-                <CustomNavbar />
-                <br></br>
-                <br></br>
-                <div className="d-flex justify-content-center">
-                    <Spinner />
-                </div>
-            </div>
-        );
+    const newUserSignUp = () => {
 
-    if (_404)
-        return <_404Component />
+    }
 
-    if (mainError)
-        return <ErrorComponent errorMessage={mainError} />
+    // if (loading)
+    //     return (
+    //         <div style={{ height: '100%' }}>
+    //             <CustomNavbar />
+    //             <br></br>
+    //             <br></br>
+    //             <div className="d-flex justify-content-center">
+    //                 <Spinner />
+    //             </div>
+    //         </div>
+    //     );
+
+    // if (_404)
+    //     return <_404Component />
+
+    // if (mainError)
+    //     return <ErrorComponent errorMessage={mainError} />
+
+    // if (score)
+    return <AfterAnsweringComponent score={score} initialName={name}/>
+
+
 
     if (data)
         return (
