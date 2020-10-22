@@ -18,6 +18,21 @@ const AnswerPage = () => {
     const [error, setError] = useState(null);
     const [disableButton, setDissableButton] = useState(false);
 
+
+    const [name, setName] = useState('');
+    const [answers, setAnswers] = useState({
+        _1: '',
+        _2: '',
+        _3: '',
+        _4: '',
+        _5: '',
+        _6: '',
+        _7: '',
+        _8: '',
+        _9: '',
+        _10: '',
+    });
+
     var quizName, uid;
 
     const foo = answerURL.split('-');
@@ -53,29 +68,23 @@ const AnswerPage = () => {
         init();
     }, []);
 
-    var name = '';
-    var answers = {
-        _1: '',
-        _2: '',
-        _3: '',
-        _4: '',
-        _5: '',
-        _6: '',
-        _7: '',
-        _8: '',
-        _9: '',
-        _10: '',
-    };
 
     const handleChange = (e) => {
         const name = e.target.name;
-        answers[name] = e.target.value;
+
+        let temp = answers;
+        temp[name] = e.target.value;
+
+        setAnswers(temp);
     }
 
     const checkIfAllAreSelected = () => {
 
-        if (name === '' || name === null || name === undefined)
+        if (name.trim() === '' || name === null || name === undefined) {
             return false;
+        }
+
+        console.log(answers);
 
         var foo = 0;
         for (var key in answers) {
@@ -90,7 +99,9 @@ const AnswerPage = () => {
     }
 
     const handleSubmit = async () => {
+
         setDissableButton(true);
+
         if (!checkIfAllAreSelected()) {
             setError('Please answer all the questions');
             setDissableButton(false);
@@ -98,7 +109,16 @@ const AnswerPage = () => {
         }
 
 
-        console.log(name, answers);
+        let score = 0;
+        for (const key in answers) {
+            var ans = answers[key];
+            var friendsAns = data['answers'][key.replace('_', '')];
+
+            if (friendsAns === ans)
+                score++;
+        }
+
+        console.log('your score is', score);
 
     }
 
@@ -118,7 +138,7 @@ const AnswerPage = () => {
         return <_404Component />
 
     if (mainError)
-        return <ErrorComponent errorMessage={mainError}/>
+        return <ErrorComponent errorMessage={mainError} />
 
     if (data)
         return (
@@ -130,7 +150,7 @@ const AnswerPage = () => {
                     <Form>
                         <FormGroup>
                             <Label for="exampleEmail">Name</Label>
-                            <Input type="text" name="email" id="name" placeholder="Harry Potter" onChange={(e) => name = e.target.value} />
+                            <Input type="text" name="email" id="name" placeholder="Harry Potter" onChange={(e) => setName(e.target.value)} />
                         </FormGroup>
 
                         {
