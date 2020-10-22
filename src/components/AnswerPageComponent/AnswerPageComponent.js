@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Spinner, Container, Card, Form, FormGroup, Label, Input, CardBody, CardTitle, CardSubtitle, CardText, Button, Row, Col, Alert } from 'reactstrap';
 import { checkIfDocumentExists } from '../../firebase/db';
 import _404Component from '../404/_404Component';
+import ErrorComponent from '../ErrorComponent/ErrorComponent';
 import BasicQuizQuestions from '../Questions/basic';
 import CustomNavbar from '../Reuse/CustomNavbar';
 
@@ -13,6 +14,7 @@ const AnswerPage = () => {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(null);
 
+    const [mainError, setMainError] = useState(null);
     const [error, setError] = useState(null);
     const [disableButton, setDissableButton] = useState(false);
 
@@ -32,7 +34,13 @@ const AnswerPage = () => {
 
             if (data === null) {
                 let document = await checkIfDocumentExists(uid, 'basic-quiz');
-                console.log('here');
+
+                if (document === 'Error in loading, please try again') {
+                    setMainError(document);
+                    setLoading(false);
+                    return;
+                }
+
                 if (document.exists) {
                     let data = document.data();
                     setData(data);
@@ -108,6 +116,9 @@ const AnswerPage = () => {
 
     if (_404)
         return <_404Component />
+
+    if (mainError)
+        return <ErrorComponent errorMessage={mainError}/>
 
     if (data)
         return (

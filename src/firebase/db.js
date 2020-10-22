@@ -2,7 +2,11 @@ import firebase from './firebase.js';
 
 
 const checkIfDocumentExists = async (collection, doc) => {
-    return (await firebase.firestore().collection(collection).doc(doc).get());
+    try {
+        return (await firebase.firestore().collection(collection).doc(doc).get());
+    } catch (error) {
+        return 'Error in loading, please try again';
+    }
 }
 
 const submitQuiz = async (path, docName, value) => {
