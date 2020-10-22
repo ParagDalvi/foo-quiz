@@ -30,8 +30,8 @@ const BasicQuiz = ({ user }) => {
             return await checkIfDocumentExists(user.uid, 'basic-quiz');
         }
 
-        init().then((bool) => {
-            if (bool)
+        init().then((doc) => {
+            if (doc.exists)
                 setShowSharingPage(true);
         });
 

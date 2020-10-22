@@ -15,8 +15,7 @@ const AnswerPage = () => {
     const [_404, set404] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    // const [score, setScore] = useState(null);
-    const [score, setScore] = useState(6);
+    const [score, setScore] = useState(null);
 
     const [data, setData] = useState(null);
 
@@ -46,6 +45,7 @@ const AnswerPage = () => {
     uid = foo[1];
 
     useEffect(() => {
+
         async function init() {
             if (quizName !== 'basic') {
                 set404(true);
@@ -71,7 +71,9 @@ const AnswerPage = () => {
             }
             setLoading(false);
         }
+
         init();
+
     }, []);
 
 
@@ -123,36 +125,31 @@ const AnswerPage = () => {
             if (friendsAns === ans)
                 marks++;
         }
-
-
         setScore(marks);
 
     }
 
-    const newUserSignUp = () => {
 
-    }
+    if (loading)
+        return (
+            <div style={{ height: '100%' }}>
+                <CustomNavbar />
+                <br></br>
+                <br></br>
+                <div className="d-flex justify-content-center">
+                    <Spinner />
+                </div>
+            </div>
+        );
 
-    // if (loading)
-    //     return (
-    //         <div style={{ height: '100%' }}>
-    //             <CustomNavbar />
-    //             <br></br>
-    //             <br></br>
-    //             <div className="d-flex justify-content-center">
-    //                 <Spinner />
-    //             </div>
-    //         </div>
-    //     );
+    if (_404)
+        return <_404Component />
 
-    // if (_404)
-    //     return <_404Component />
+    if (mainError)
+        return <ErrorComponent errorMessage={mainError} />
 
-    // if (mainError)
-    //     return <ErrorComponent errorMessage={mainError} />
-
-    // if (score)
-    return <AfterAnsweringComponent score={score} initialName={name}/>
+    if (score)
+        return <AfterAnsweringComponent score={score} initialName={name} />
 
 
 

@@ -16,13 +16,11 @@ const AfterAnsweringComponent = ({ score, initialName }) => {
     const newUserSignUp = async () => {
         setDisableButton(true);
         if (name.trim().length > 0 && name.trim().length < 30) {
-            try {
-                await signUp(name)
-                history.push('/');
-
-            } catch (error) {
+            signUp(name).then(() => {
+                history.push('/', { name });
+            }).catch((error) => {
                 setError('Failed to sign you up, please try again.');
-            }
+            });
         } else {
             setError('Please enter a valid name.');
         }
@@ -57,7 +55,7 @@ const AfterAnsweringComponent = ({ score, initialName }) => {
                         <Form>
                             <FormGroup>
                                 <Label for="exampleEmail">Full Name</Label>
-                                <Input type="text" name="email" id="name" placeholder="Tony Stark" onChange={(e) => setName(e.target.value)} />
+                                <Input type="text" name="email" id="name" placeholder="Tony Stark" value={name} onChange={(e) => setName(e.target.value)} />
                             </FormGroup>
                             {
                                 error ?

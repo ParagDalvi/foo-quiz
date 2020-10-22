@@ -49,6 +49,9 @@ class MainComponent extends Component {
                     <Route exact path="/basic">
                         <BasicQuiz user={this.state.user} />
                     </Route>
+                    <Route exact path="/answer/:answerURL">
+                        <AnswerPage />
+                    </Route>
                 </Switch>
             </Router>
         );

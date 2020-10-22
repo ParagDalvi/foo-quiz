@@ -6,7 +6,6 @@ const signUp = async (name) => {
     await firebase.auth().currentUser.updateProfile({
         displayName: name,
     });
-
 }
 
 export { signUp };
