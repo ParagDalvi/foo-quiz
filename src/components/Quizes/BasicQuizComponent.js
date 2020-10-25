@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardText, Container, CardBody, CardTitle, CardSubtitle, FormGroup, Label, Input, Row, Col, Button, Alert } from 'reactstrap';
-import { checkIfDocumentExists, submitQuiz } from '../../firebase/db';
+import { checkIfDocumentExists, writeNewDoc } from '../../firebase/db';
 import CustomCard from '../Reuse/CustoCard';
 import CustomNavbar from '../Reuse/CustomNavbar';
 import LinkSharing from './LinkSharingComponent';
@@ -63,7 +63,7 @@ const BasicQuiz = ({ user }) => {
             return;
         }
 
-        var result = await submitQuiz(user.uid, 'basic-quiz', answers);
+        var result = await writeNewDoc(user.uid, 'basic-quiz', answers, user.displayName);
         if (result !== 'done')
             setError('Failed to save your answers, sorry :(');
 

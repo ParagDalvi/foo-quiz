@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Spinner, Container, Card, Form, FormGroup, Label, Input, CardBody, CardTitle, CardSubtitle, CardText, Button, Row, Col, Alert } from 'reactstrap';
 import { signUp } from '../../firebase/auth';
-import { checkIfDocumentExists } from '../../firebase/db';
+import { checkIfDocumentExists, updateDoc } from '../../firebase/db';
 import _404Component from '../404/_404Component';
 import ErrorComponent from '../ErrorComponent/ErrorComponent';
 import BasicQuizQuestions from '../Questions/basic';
@@ -125,7 +125,17 @@ const AnswerPage = () => {
             if (friendsAns === ans)
                 marks++;
         }
+
+        let friends = data['friends'];
+        friends[name] = marks;
+
+        var result = await updateDoc(uid, 'basic-quiz', friends);
+        if (result != 'done')
+            setMainError('Failed to save your answers, sorry. Please try again.');
+
         setScore(marks);
+        setDissableButton(false);
+
 
     }
 
