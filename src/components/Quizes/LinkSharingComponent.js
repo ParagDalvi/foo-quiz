@@ -48,7 +48,6 @@ const LinkSharing = ({ name, user, data }) => {
                             <Button className="ml-1" color="primary" onClick={() => { navigator.clipboard.writeText('foo-quiz.web.app/answer/' + name + '-' + user.uid) }}><FaCopy /></Button>
                         </div>
 
-
                     </CardBody>
                 </Card>
             </Container>
