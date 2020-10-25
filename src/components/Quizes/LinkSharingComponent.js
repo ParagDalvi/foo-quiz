@@ -3,7 +3,7 @@ import { Button, Card, CardBody, Col, Container, Input, Row } from 'reactstrap';
 import CustomNavbar from '../Reuse/CustomNavbar';
 import { FaCopy, FaWhatsapp } from 'react-icons/fa';
 
-const LinkSharing = ({ name, user }) => {
+const LinkSharing = ({ name, user, data }) => {
 
     const copyValue = 'Hey there, I challenge you to take this test. This test has a few simple questions, your task is to guess what my answer would have to the same question. This way I will know, how well you know me? Follow this link to take the quiz foo-quiz.web.app/answer/' + name + '-' + user.uid;
 
@@ -11,6 +11,11 @@ const LinkSharing = ({ name, user }) => {
         <div>
             <CustomNavbar />
             <Container>
+
+
+                <ListOfScores data={data} />
+
+
                 <br></br>
                 <Card>
                     <CardBody>
@@ -37,6 +42,24 @@ const LinkSharing = ({ name, user }) => {
                     </CardBody>
                 </Card>
             </Container>
+        </div>
+    );
+}
+
+
+const ListOfScores = ({ data }) => {
+
+    return (
+        <div className="d-flex justify-content-center">
+            {
+                Object.entries(data['friends']).map(([key, value]) => {
+                    return (
+                        <div>
+                            {key} : {value}
+                        </div>
+                    );
+                })
+            }
         </div>
     );
 }

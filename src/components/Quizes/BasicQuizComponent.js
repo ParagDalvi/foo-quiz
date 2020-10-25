@@ -24,6 +24,7 @@ const BasicQuiz = ({ user }) => {
     const [error, setError] = useState('');
     const [disableButton, setDissableButton] = useState(false);
     const [showSharingPage, setShowSharingPage] = useState(false);
+    const [data, setData] = useState(null);
 
     useEffect(() => {
         async function init() {
@@ -31,8 +32,10 @@ const BasicQuiz = ({ user }) => {
         }
 
         init().then((doc) => {
-            if (doc.exists)
+            if (!data && doc.exists) {
+                setData(doc.data());
                 setShowSharingPage(true);
+            }
         });
 
     });
@@ -73,7 +76,7 @@ const BasicQuiz = ({ user }) => {
 
 
     if (showSharingPage) {
-        return <LinkSharing name="basic" user={user} />
+        return <LinkSharing name="basic" user={user} data={data} />
     }
 
     return (
