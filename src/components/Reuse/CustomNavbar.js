@@ -19,7 +19,7 @@ const CustomNavbar = ({ toggleModal }) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand><Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>FOO-Quiz</Link></NavbarBrand>
+        <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}><NavbarBrand>FOO-Quiz</NavbarBrand></Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
