@@ -4,24 +4,38 @@ import { Col, Container, Row } from 'reactstrap';
 import CustomCard from '../Reuse/CustoCard';
 import CustomNavbar from '../Reuse/CustomNavbar';
 
-const UserHomeComponent = ({user}) => {
+const UserHomeComponent = ({ user }) => {
 
-    
+
     return (
         <div>
             <CustomNavbar />
             <Container>
 
-                <div className="row">
+                <br></br>
+                <Row>
                     <div className="m-auto">
                         <p>Hey, {user.displayName}</p>
                     </div>
-                </div>
+                </Row>
 
                 <Row>
-                    <div className="col-3">
-                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai"/>
-                    </div>
+                    <Col>
+                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai" />
+                    </Col>
+                    <Col>
+                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai" />
+                    </Col>
+                </Row>
+                <br></br>
+                <Row >
+                    <Col>
+                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai" />
+                    </Col>
+                    <Col>
+                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai" />
+                    </Col>
+
                 </Row>
             </Container>
         </div>
