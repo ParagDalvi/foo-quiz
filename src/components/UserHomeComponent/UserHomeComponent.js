@@ -18,26 +18,26 @@ const UserHomeComponent = ({ user }) => {
                         {
                             user.displayName ?
                                 <p>Hey, {user.displayName}</p>
-                                : <div></div>
+                                : <p>Hey there</p>
                         }
                     </div>
                 </Row>
 
                 <Row>
                     <Col>
-                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai" />
+                        <CustomCard url="/basic" title="Basic Quiz" subtitle="Simple questions for anyone who knows you even a little bit." someCrap="This quiz contains general questions." />
                     </Col>
                     <Col>
-                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai" />
+                        <CustomCard title="Lifestyle Quiz" subtitle=".." someCrap="Coming Soon.." />
                     </Col>
                 </Row>
                 <br></br>
                 <Row >
                     <Col>
-                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai" />
+                        <CustomCard title="Fantasies Quiz" subtitle=".." someCrap="Coming Soon.." />
                     </Col>
                     <Col>
-                        <CustomCard title="Basic Quiz" subtitle="F" someCrap="OOO Bhai" />
+                        <CustomCard title="Dirt Quiz" subtitle=".." someCrap="Coming Soon.." />
                     </Col>
 
                 </Row>

@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 
-const CustomCard = ({ title, subtitle, someCrap }) => {
+const CustomCard = ({ title, subtitle, someCrap, url }) => {
 
     const history = useHistory();
 
@@ -13,10 +13,15 @@ const CustomCard = ({ title, subtitle, someCrap }) => {
         <div>
             <Card>
                 <CardBody>
-                    <CardTitle>{title}</CardTitle>
+                    <CardTitle><h6>{title}</h6></CardTitle>
                     <CardSubtitle>{subtitle}</CardSubtitle>
                     <CardText>{someCrap}</CardText>
-                    <Button color="primary" onClick={() => history.push('/basic')}>Start</Button>
+                    {
+                        url ?
+                            <Button color="primary" onClick={() => history.push(url)}>Start</Button>
+                            :
+                            <Button color="primary" disabled>Start</Button>
+                    }
                 </CardBody>
             </Card>
         </div>
