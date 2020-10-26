@@ -15,7 +15,11 @@ const UserHomeComponent = ({ user }) => {
                 <br></br>
                 <Row>
                     <div className="m-auto">
-                        <p>Hey, {user.displayName}</p>
+                        {
+                            user.displayName ?
+                                <p>Hey, {user.displayName}</p>
+                                : <div></div>
+                        }
                     </div>
                 </Row>
 
