@@ -6,6 +6,7 @@ import { checkIfDocumentExists, updateDoc } from '../../firebase/db';
 import _404Component from '../404/_404Component';
 import ErrorComponent from '../ErrorComponent/ErrorComponent';
 import BasicQuizQuestions from '../Questions/basic';
+import CustomFooter from '../Reuse/CustomFooter';
 import CustomNavbar from '../Reuse/CustomNavbar';
 import AfterAnsweringComponent from './AfterAnsweringComponent';
 
@@ -235,6 +236,7 @@ const AnswerPage = () => {
                         <Button disabled={disableButton} color="primary" onClick={() => handleSubmit()}>Submit</Button>
                     </div>
                 </Container>
+                <CustomFooter />
             </div>
         );
 
@@ -246,6 +248,7 @@ const AnswerPage = () => {
             <Container>
                 <br></br>
                 <p>Failed, please try again</p>
+                <CustomFooter />
             </Container>
         </div>
 

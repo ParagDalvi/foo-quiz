@@ -3,6 +3,7 @@ import { Button, Card, CardBody, Col, Container, Input, Row, Alert } from 'react
 import CustomNavbar from '../Reuse/CustomNavbar';
 import { FaCopy, FaWhatsapp } from 'react-icons/fa';
 import BasicQuizQuestions from '../Questions/basic';
+import CustomFooter from '../Reuse/CustomFooter';
 
 const LinkSharing = ({ name, user, data }) => {
 
@@ -51,6 +52,7 @@ const LinkSharing = ({ name, user, data }) => {
                     </CardBody>
                 </Card>
             </Container>
+            <CustomFooter />
         </div>
     );
 }

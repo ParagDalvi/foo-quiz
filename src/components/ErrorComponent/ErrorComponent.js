@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container } from 'reactstrap';
+import CustomFooter from '../Reuse/CustomFooter';
 import CustomNavbar from '../Reuse/CustomNavbar';
 
 const ErrorComponent = ({ errorMessage }) => {
+    console.log('here');
     return (
         <div>
             <CustomNavbar />

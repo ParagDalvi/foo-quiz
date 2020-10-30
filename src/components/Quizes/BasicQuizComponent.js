@@ -5,6 +5,7 @@ import CustomCard from '../Reuse/CustoCard';
 import CustomNavbar from '../Reuse/CustomNavbar';
 import LinkSharing from './LinkSharingComponent';
 import BasicQuizQuestions from '../Questions/basic.js';
+import CustomFooter from '../Reuse/CustomFooter';
 
 const BasicQuiz = ({ user }) => {
 
@@ -143,6 +144,8 @@ const BasicQuiz = ({ user }) => {
                 </div>
 
             </Container>
+
+            <CustomFooter />
         </div>
     );
 }

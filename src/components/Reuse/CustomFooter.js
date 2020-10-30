@@ -10,7 +10,7 @@ const CustomFooter = () => {
             <br></br>
             <footer id="sticky-footer" className="py-4 bg-dark text-white-50">
                 <div class="container text-center">
-
+                    <p>Foo-Quiz | Built to kill time</p>
                     <Row>
                         <Col>
                             <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Home</Link>
@@ -28,8 +28,6 @@ const CustomFooter = () => {
                             <Link to="/help" style={{ color: 'inherit', textDecoration: 'inherit' }}>Help</Link>
                         </Col>
                     </Row>
-                    <br></br>
-                    <p>Foo-Quiz | Built to kill time</p>
                 </div>
             </footer>
         </div>

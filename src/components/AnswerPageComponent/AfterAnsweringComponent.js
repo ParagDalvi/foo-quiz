@@ -4,6 +4,7 @@ import CustomNavbar from '../Reuse/CustomNavbar';
 import BasicQuizQuestions from '../Questions/basic';
 import { signUp } from '../../firebase/auth';
 import { useHistory } from 'react-router-dom';
+import CustomFooter from '../Reuse/CustomFooter';
 
 const AfterAnsweringComponent = ({ score, initialName }) => {
 
@@ -70,7 +71,7 @@ const AfterAnsweringComponent = ({ score, initialName }) => {
                     </CardBody>
                 </Card>
 
-
+                <CustomFooter />
             </Container>
         </div>
     );

@@ -18,12 +18,13 @@ const UserHomeComponent = ({ user }) => {
                     <div className="m-auto">
                         {
                             user.displayName ?
-                                <p>Hey, {user.displayName}</p>
-                                : <p>Hey there</p>
+                                <h5>Hey, {user.displayName}</h5>
+                                : <h5>Hey there</h5>
                         }
                     </div>
                 </Row>
 
+                <br></br>
 
                 <CustomCard url="/basic" title="Basic Quiz" subtitle="Simple questions for anyone who knows you even a little bit." someCrap="This quiz contains general questions." />
 
