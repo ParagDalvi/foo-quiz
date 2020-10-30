@@ -39,7 +39,7 @@ const BasicQuizQuestions = [
         a: 'Pick and excel at a skill',
         b: 'Start business',
         c: 'New house',
-        d: 'Strengthen career',
+        d: 'New Car',
     },
     {
         question: 'Which is my favorite drink?',

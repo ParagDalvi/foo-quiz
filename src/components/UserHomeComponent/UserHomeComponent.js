@@ -2,6 +2,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import CustomCard from '../Reuse/CustoCard';
+import CustomFooter from '../Reuse/CustomFooter';
 import CustomNavbar from '../Reuse/CustomNavbar';
 
 const UserHomeComponent = ({ user }) => {
@@ -23,25 +24,23 @@ const UserHomeComponent = ({ user }) => {
                     </div>
                 </Row>
 
-                <Row>
-                    <Col>
-                        <CustomCard url="/basic" title="Basic Quiz" subtitle="Simple questions for anyone who knows you even a little bit." someCrap="This quiz contains general questions." />
-                    </Col>
-                    <Col>
-                        <CustomCard title="Lifestyle Quiz" subtitle=".." someCrap="Coming Soon.." />
-                    </Col>
-                </Row>
-                <br></br>
-                <Row >
-                    <Col>
-                        <CustomCard title="Fantasies Quiz" subtitle=".." someCrap="Coming Soon.." />
-                    </Col>
-                    <Col>
-                        <CustomCard title="Dirt Quiz" subtitle=".." someCrap="Coming Soon.." />
-                    </Col>
 
-                </Row>
+                <CustomCard url="/basic" title="Basic Quiz" subtitle="Simple questions for anyone who knows you even a little bit." someCrap="This quiz contains general questions." />
+
+                <br></br>
+
+                <CustomCard title="Lifestyle Quiz" subtitle=".." someCrap="Coming Soon.." />
+
+                <br></br>
+
+                <CustomCard title="Fantasies Quiz" subtitle=".." someCrap="Coming Soon.." />
+
+                <br></br>
+
+                <CustomCard title="Dirt Quiz" subtitle=".." someCrap="Coming Soon.." />
+
             </Container>
+            <CustomFooter />
         </div>
     );
 }
